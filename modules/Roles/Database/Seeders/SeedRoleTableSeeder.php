@@ -27,19 +27,11 @@ class SeedRoleTableSeeder extends Seeder
         ])->syncPermissions(Permission::all());
 
         Role::updateOrCreate([
-            'name' => Role::USER,
+            'name' => Role::CUSTOMER,
             'guard_name' => 'api',
         ], [
-            'display_name' => 'User',
-            'description' => 'User.',
-        ]);
-
-        Role::updateOrCreate([
-            'name' => Role::EMPLOYEE,
-            'guard_name' => 'api',
-        ], [
-            'display_name' => 'Employee',
-            'description' => 'Employee.',
+            'display_name' => 'Customer',
+            'description' => 'Customer.',
         ]);
     }
 }

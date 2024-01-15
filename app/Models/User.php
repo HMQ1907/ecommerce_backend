@@ -14,11 +14,7 @@ use Laravel\Passport\HasApiTokens;
 use Modules\Auth\Models\OAuthProvider;
 use Modules\Auth\Notifications\EmailVerification;
 use Modules\Auth\Notifications\PasswordReset;
-use Modules\Branches\Models\Branch;
-use Modules\Comments\Traits\HasCommenter;
-use Modules\Employees\Models\Employee;
 use Modules\Roles\Models\Role;
-use Modules\Teams\Traits\UserHasTeams;
 use Modules\Users\Models\Device;
 use Modules\Users\Models\UserSetting;
 use Spatie\MediaLibrary\HasMedia;
@@ -28,16 +24,14 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements CanBeNotifiable, HasMedia //implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
-    use HasCommenter;
     use HasRoles;
     use InteractsWithMedia;
-    use UserHasTeams;
 
     const ADMIN = 'admin';
 
     const USER = 'user';
 
-    const TYPE_EMPLOYEE = 'employee';
+    const TYPE_CUSTOMER = 'customer';
 
     const STATUS_ACTIVE = 'active';
 
@@ -141,11 +135,6 @@ class User extends Authenticatable implements CanBeNotifiable, HasMedia //implem
         return $this->hasMany(OAuthProvider::class);
     }
 
-    public function branch()
-    {
-        return $this->belongsTo(Branch::class);
-    }
-
     public function devices()
     {
         return $this->hasMany(Device::class);
@@ -154,10 +143,5 @@ class User extends Authenticatable implements CanBeNotifiable, HasMedia //implem
     public function setting()
     {
         return $this->hasOne(UserSetting::class);
-    }
-
-    public function employee()
-    {
-        return $this->hasOne(Employee::class);
     }
 }

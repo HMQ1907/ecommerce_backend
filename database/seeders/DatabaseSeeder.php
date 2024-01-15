@@ -5,13 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
-use Modules\Branches\Database\Seeders\BranchesDatabaseSeeder;
-use Modules\Departments\Database\Seeders\DepartmentsDatabaseSeeder;
-use Modules\Designations\Database\Seeders\DesignationsDatabaseSeeder;
-use Modules\Documents\Database\Seeders\DocumentsDatabaseSeeder;
-use Modules\Employees\Database\Seeders\EmployeesDatabaseSeeder;
-use Modules\Overtimes\Database\Seeders\OvertimesDatabaseSeeder;
-use Modules\Payroll\Database\Seeders\PayrollDatabaseSeeder;
 use Modules\Roles\Database\Seeders\RolesDatabaseSeeder;
 use Modules\Roles\Models\Role;
 use Modules\Users\Database\Seeders\UsersDatabaseSeeder;
@@ -30,13 +23,6 @@ class DatabaseSeeder extends Seeder
             // VietnamZoneSeeder::class,
             RolesDatabaseSeeder::class,
             UsersDatabaseSeeder::class,
-            BranchesDatabaseSeeder::class,
-            DepartmentsDatabaseSeeder::class,
-            DesignationsDatabaseSeeder::class,
-            EmployeesDatabaseSeeder::class,
-            PayrollDatabaseSeeder::class,
-            DocumentsDatabaseSeeder::class,
-            OvertimesDatabaseSeeder::class,
         ]);
 
         $email = 'admin@yopmail.com';

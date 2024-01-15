@@ -29,7 +29,7 @@ abstract class Notification extends BaseNotification implements ShouldQueue
     /**
      * Notification's type declaration.
      */
-    public function __construct(string $icon = null, Model $creator = null)
+    public function __construct(?string $icon = null, ?Model $creator = null)
     {
         $this->icon = $icon;
         $this->creator = ($creator ?? \Auth::user());
