@@ -1,0 +1,13 @@
+{
+    "name": "Designations",
+    "alias": "designations",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Designations\\Providers\\DesignationsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

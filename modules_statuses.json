@@ -1,0 +1,19 @@
+{
+    "Auth": true,
+    "Users": true,
+    "Roles": true,
+    "Employees": true,
+    "Attendances": true,
+    "Comments": true,
+    "Upload": true,
+    "Setting": true,
+    "Teams": true,
+    "Payroll": true,
+    "Departments": true,
+    "Designations": true,
+    "Branches": true,
+    "Documents": true,
+    "Overtimes": true,
+    "Migration": true,
+    "CreateOvertimesTable": true
+}

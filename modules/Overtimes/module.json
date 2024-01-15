@@ -1,0 +1,13 @@
+{
+    "name": "Overtimes",
+    "alias": "overtimes",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Overtimes\\Providers\\OvertimesServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+$app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+
+$server = $app->make(\Spiral\GRPC\Server::class, [['debug' => true]]);
+
+$server->registerService(
+    \Proto\UserService\UserServiceInterface::class,
+    new \Modules\Users\Services\Grpc\UserService()
+);
+
+$worker = new Spiral\RoadRunner\Worker(new Spiral\Goridge\StreamRelay(STDIN, STDOUT));
+
+$server->serve($worker);

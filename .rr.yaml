@@ -1,0 +1,29 @@
+version: "2.7"
+
+server:
+  command: "php worker"
+  env:
+    - XDEBUG_SESSION: ${GRPC_XDEBUG}
+  relay: "pipes"
+  relay_timeout: "20s"
+
+logs:
+  level: ${ROAD_RUNNER_LOG_LEVEL}
+
+grpc:
+  listen: ${GRPC_SERVER}
+  proto:
+    - "proto/user.proto"
+  max_send_msg_size: 50
+  max_recv_msg_size: 50
+  max_connection_idle: 0s
+  max_connection_age: 0s
+  max_connection_age_grace: 0s
+  max_concurrent_streams: 10
+  ping_time: 1s
+  timeout: 200s
+  pool:
+    num_workers: ${GRPC_WORKER_NUM_WORKERS}
+    max_jobs: ${GRPC_WORKER_MAX_JOBS}
+    allocate_timeout: 60s
+    destroy_timeout: 60
